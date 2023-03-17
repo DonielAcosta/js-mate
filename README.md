@@ -1,1 +1,1 @@
-# js-mate
+# taller-javascript-math
