@@ -39,3 +39,31 @@ function calcularTriangulo(lado1,lado2,base,altura){
     }
 }
 console.groupEnd('Triangulo');
+
+
+console.group('Circle');
+
+const radioCirculo = 3;
+const diametroCirculo = radioCirculo * 2;
+const PI =3.1415;
+const circunferencia = diametroCirculo * PI;
+const areaCirculo = (radioCirculo ** 2) * PI
+
+console.log({
+    radioCirculo,
+    diametroCirculo,
+    PI,
+    circunferencia,
+    areaCirculo
+});
+
+function calcularCirculo(radio){
+    const diametro = (radio *2 );
+    const radioAlcuadrado = Math.pow(radio,2);
+    return{
+        circunferencia: diametro * Math.PI,
+        area: radioAlcuadrado * Math.PI,
+    }
+}
+
+console.groupEnd('Circle');
