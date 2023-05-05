@@ -9,6 +9,13 @@ btn.addEventListener('click', calcularPrecioConDescuento);
 function calcularPrecioConDescuento(){
     //formula ( p * (100 -D)) / 100
 
+    // const arrayUObjeto = undefined; // ['cupones','descuentos'] {}?
+
+    const couponObj = {
+        'doniel': 30,
+        'abc': 15,
+        'posman': 50
+    };
     const price     = Number(inputPrice.value);
     const coupon  = inputCoupon.value;
 
@@ -18,18 +25,24 @@ function calcularPrecioConDescuento(){
     }
 
     let discount;
-
-    switch (coupon) {
-        case 'Doniel':
-            discount = 30;
-            break;
-        case 'no_le_digas_a_nadie':
-            discount = 50;
-            break;
-        default:
-            pResult.innerText = 'Cupon no es Valido'
-            return;
+    if(couponObj[coupon]){
+        discount = couponObj[coupon];
+    }else{
+        pResult.innerText = 'Cupon no es Valido'
+        return;
     }
+
+    // switch (coupon) {
+    //     case 'Doniel':
+    //         discount = 30;
+    //         break;
+    //     case 'no_le_digas_a_nadie':
+    //         discount = 50;
+    //         break;
+    //     default:
+    //         pResult.innerText = 'Cupon no es Valido'
+    //         return;
+    // }
     // if(coupon == 'Doniel'){
     //     discount = 30;
     // }else if(coupon =='no_le_digas_a_nadie') {
