@@ -5,17 +5,25 @@ const pResult = document.querySelector('#result');
 
 
 btn.addEventListener('click', calcularPrecioConDescuento);
+    // const arrayUObjeto = undefined; // ['cupones','descuentos'] {}?
 
+    // const couponObj = {
+    //     'doniel': 30,
+    //     'abc': 15,
+    //     'posman': 50
+    // };
+    const couponList = [];
+    couponList.push({
+        name: 'doniel',
+        discount: 30,
+    });
+    couponList.push({
+        name: 'posman',
+        discount: 15,
+    });
 function calcularPrecioConDescuento(){
     //formula ( p * (100 -D)) / 100
 
-    // const arrayUObjeto = undefined; // ['cupones','descuentos'] {}?
-
-    const couponObj = {
-        'doniel': 30,
-        'abc': 15,
-        'posman': 50
-    };
     const price     = Number(inputPrice.value);
     const coupon  = inputCoupon.value;
 
@@ -24,9 +32,14 @@ function calcularPrecioConDescuento(){
         return;
     }
 
+    function buscar(couponElemento){
+        return couponElemento.name == coupon;
+         
+    }
     let discount;
-    if(couponObj[coupon]){
-        discount = couponObj[coupon];
+    const couponInArray = couponList.find(buscar);
+    if(couponInArray){
+        discount = couponInArray.discount;
     }else{
         pResult.innerText = 'Cupon no es Valido'
         return;
