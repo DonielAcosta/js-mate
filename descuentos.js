@@ -1,5 +1,5 @@
 const inputPrice = document.querySelector('#price');
-const inputDiscount = document.querySelector('#discount');
+const inputCoupon = document.querySelector('#coupon');
 const btn = document.querySelector('#calcular');
 const pResult = document.querySelector('#result');
 
@@ -10,12 +10,35 @@ function calcularPrecioConDescuento(){
     //formula ( p * (100 -D)) / 100
 
     const price     = Number(inputPrice.value);
-    const discount  = Number(inputDiscount.value);
+    const coupon  = inputCoupon.value;
 
-    if(!price || !discount){
+    if(!price || !coupon){
         pResult.innerText = 'Porfavor ingresar datos';
         return;
     }
+
+    let discount;
+
+    switch (coupon) {
+        case 'Doniel':
+            discount = 30;
+            break;
+        case 'no_le_digas_a_nadie':
+            discount = 50;
+            break;
+        default:
+            pResult.innerText = 'Cupon no es Valido'
+            return;
+    }
+    // if(coupon == 'Doniel'){
+    //     discount = 30;
+    // }else if(coupon =='no_le_digas_a_nadie') {
+    //     discount = 50;
+    // } else{
+    //   pResult.innerText = 'Cupon no es Valido'
+    //   return;
+    // }
+
     if(discount > 100){
         pResult.innerText = 'descuento no puede superar el 100%';
         return;
