@@ -1,10 +1,14 @@
-function esPar(lista){
+
+
+const Mathcal = {};
+
+Mathcal.esPar = function esPar(lista){
     return !(lista.length % 2);
 }
-function esImpar(lista){
+Mathcal.esImpar = function esImpar(lista){
     return lista.length % 2;
 }
-function calcularModa(lista) {
+Mathcal.calcularModa = function calcularModa(lista) {
     const listaCount = {};
   
     for (let i = 0; i < lista.length; i++) {
@@ -17,11 +21,13 @@ function calcularModa(lista) {
       }
     }
   
-    console.log(listaCount);
+    const listaArray = Object.entries(listaCount);
+    const listaOrdenada = ordenarListaBidimencional(listaArray,1)
+    console.log({listaCount, listaArray});
 
-  }
+}
 
-function calcMediana(listaDesor){
+Mathcal.calcMediana = function calcMediana(listaDesor){
 const lista = ordenarLista(listaDesor);
  const listaEspar = esPar(lista);
 
@@ -48,7 +54,7 @@ const lista = ordenarLista(listaDesor);
     console.log(lista[indexMitadListaImpar]);
  }
 }
-function calcularPromedio(lista){
+Mathcal.calcularPromedio = function calcularPromedio(lista){
     const sumar = (valorAcumulado, nuevoValor)=>{
        return valorAcumulado + nuevoValor;
     };
@@ -58,7 +64,7 @@ function calcularPromedio(lista){
     return promedio;
 }
 
-function ordenarLista(listaD){
+Mathcal.ordenarLista = function ordenarLista(listaD){
 
     //primera version de ordenamiento
     function ordenarListaSort(valorAcumulado,nuevoValor){
@@ -78,3 +84,14 @@ function ordenarLista(listaD){
 
 
 }
+
+Mathcal.ordenarListaBidimencional = function ordenarListaBidimencional(listaDesordenada,i){
+    function ordenarListaSort(valorAcumulado,nuevoValor){
+        return valorAcumulado[i] - nuevoValor[i];
+    }
+
+    const lista = listaDesordenada.sort(ordenarListaSort);
+    return lista;
+
+}
+
