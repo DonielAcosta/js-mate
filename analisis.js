@@ -145,3 +145,7 @@ function medianaTop10() {
   const medianaTop10 = PlatziMath.calcularMediana(top10);
   return medianaTop10;
 }
+
+
+//https://github.com/NekoShooter/matJs
+// para ver graficos 
